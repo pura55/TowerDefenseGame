@@ -81,7 +81,7 @@ public class MidBossAnimation : IncludeMovementAnimation
                 break;
         }
 
-        SelectFripSprite();
+        SelectFlipSprite();
     }
 
     /// @brief ‰Šú‰»ŠÖ”

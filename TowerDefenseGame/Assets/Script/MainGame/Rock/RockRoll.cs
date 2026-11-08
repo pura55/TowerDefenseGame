@@ -8,15 +8,14 @@ using UnityEngine;
 public class RockRoll : MonoBehaviour
 {
     #region Config
-    private float rollSpeed = 2f; // 追従速度
-    private float spinAmount = 120f; // 回転量
+    [SerializeField]private float rollSpeed = 2f; // 追従速度
+    [SerializeField]private float spinAmount = 120f; // 回転量
     [SerializeField] private SoundPlayer soundPlayer; // サウンドプレイヤー
+    [SerializeField] private Transform targetTower; // ターゲットのタワー
     #endregion
 
     #region State
     private float degree = 0f; // 角度
-    [SerializeField] private Transform targetTower; // ターゲットのタワー
-    //private bool hitWall = false;
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

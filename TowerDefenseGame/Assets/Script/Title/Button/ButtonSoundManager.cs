@@ -8,7 +8,7 @@ using UnityEngine;
 public class ButtonSoundManager : MonoBehaviour
 {
     [SerializeField] private SoundPlayer soundPlayer; // サウンドプレイヤー
-    [SerializeField] private float buttunPitch = 1.0f; // ボタンを押したときのピッチ
+    [SerializeField] private float buttonPitch = 1.0f; // ボタンを押したときのピッチ
     [SerializeField] private AudioClip buttonPush; // ボタンを押したときのサウンド
     [SerializeField] private AudioClip closePush; // クローズを押したときのサウンド
 
@@ -16,7 +16,7 @@ public class ButtonSoundManager : MonoBehaviour
     public void PlayButtonSound()
     {
         soundPlayer.SetOneShot(buttonPush);
-        soundPlayer.SetAudioPitch(buttunPitch);
+        soundPlayer.SetAudioPitch(buttonPitch);
         soundPlayer.PlayAtPoint();
     }
 
@@ -24,7 +24,7 @@ public class ButtonSoundManager : MonoBehaviour
     public void PlayCloseSound()
     {
         soundPlayer.SetOneShot(closePush);
-        soundPlayer.SetAudioPitch(buttunPitch);
+        soundPlayer.SetAudioPitch(buttonPitch);
         soundPlayer.PlayAtPoint();
     }
 }

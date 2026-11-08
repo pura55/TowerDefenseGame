@@ -547,7 +547,6 @@ MonoBehaviour:
   - {fileID: -9124702107803792163, guid: 7082aabff70a4d244845c070dec3cf96, type: 3}
   - {fileID: 2834254196096302099, guid: 89561de7f0663934db32750c500ddbec, type: 3}
   myImage: {fileID: 5190160456414680838}
-  mySprite: {fileID: 0}
 --- !u!1 &3414270940232502172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1426,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5445484095554658587}
     m_Modifications:
     - target: {fileID: 1947295841861879763, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
+      propertyPath: oppositeButton
+      value: 
+      objectReference: {fileID: 6010122834309301686}
+    - target: {fileID: 1947295841861879763, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
       propertyPath: buttonSoundManager
       value: 
       objectReference: {fileID: 5008728395660226384}
@@ -1438,6 +1441,10 @@ PrefabInstance:
       propertyPath: buttonSoundManager
       value: 
       objectReference: {fileID: 5008728395660226384}
+    - target: {fileID: 3207839518030760172, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
+      propertyPath: startPosition.x
+      value: 1920
+      objectReference: {fileID: 0}
     - target: {fileID: 4341177549591183750, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1519,6 +1526,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6742017230300553566, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
+      propertyPath: oppositeButton
+      value: 
+      objectReference: {fileID: 1584815635762586427}
+    - target: {fileID: 6742017230300553566, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
       propertyPath: buttonSoundManager
       value: 
       objectReference: {fileID: 5008728395660226384}
@@ -1545,6 +1556,17 @@ PrefabInstance:
       addedObject: {fileID: 988279754284303375}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
+--- !u!114 &1584815635762586427 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1947295841861879763, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
+  m_PrefabInstance: {fileID: 1078693666594809064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0f93f4e6ae2b54cab4f08d99817f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelectButton
 --- !u!114 &2485075666848443396 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3207839518030760172, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
@@ -1561,6 +1583,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4341177549591183750, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
   m_PrefabInstance: {fileID: 1078693666594809064}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6010122834309301686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6742017230300553566, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
+  m_PrefabInstance: {fileID: 1078693666594809064}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0f93f4e6ae2b54cab4f08d99817f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SelectButton
 --- !u!1001 &1168617921721887932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1700,6 +1733,14 @@ PrefabInstance:
       propertyPath: buttonSoundManager
       value: 
       objectReference: {fileID: 5008728395660226384}
+    - target: {fileID: 4822994611763544051, guid: de4d18d89ff196340a3cc1c5fab1aa33, type: 3}
+      propertyPath: endPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822994611763544051, guid: de4d18d89ff196340a3cc1c5fab1aa33, type: 3}
+      propertyPath: startPosition.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 7300325468596772480, guid: de4d18d89ff196340a3cc1c5fab1aa33, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1845,6 +1886,10 @@ PrefabInstance:
       propertyPath: buttonSoundManager
       value: 
       objectReference: {fileID: 5008728395660226384}
+    - target: {fileID: 7643065118021665365, guid: 245ead8e46f01ce4eb75c3934b89ef9b, type: 3}
+      propertyPath: endPosition.x
+      value: -1920
+      objectReference: {fileID: 0}
     - target: {fileID: 9071636553684978365, guid: 245ead8e46f01ce4eb75c3934b89ef9b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

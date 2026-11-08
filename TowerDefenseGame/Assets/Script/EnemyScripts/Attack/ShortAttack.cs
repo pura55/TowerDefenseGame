@@ -8,10 +8,10 @@ using UnityEngine;
 public class ShortAttack : BaseEnemyAttack
 {
     #region State
-    [SerializeField] protected bool onNomalAnimation = false; // インスペクターにNomalAnimationがあるかどうか
+    [SerializeField] protected bool onNormalAnimation = false; // インスペクターにNormalAnimationがあるかどうか
     [SerializeField] protected bool onIncludeMovementAnimation = false; // インスペクターにIncludeMovementAnimationがあるかどうか
     [SerializeField] protected bool onMidBossAnimation = false;
-    private NomalAnimation nomalAnimation;
+    private NormalAnimation normalAnimation;
     private IncludeMovementAnimation movementAnimation;
     private MidBossAnimation midBossAnimation;
     #endregion
@@ -56,10 +56,10 @@ public class ShortAttack : BaseEnemyAttack
     /// @brief 攻撃を管理する関数
     protected override void Attacking()
     {
-        if (onNomalAnimation)
+        if (onNormalAnimation)
         {
             // スプライトの指数が攻撃ヒット時の番号と一致している場合
-            if(nomalAnimation.GetSpriteIndex() == hitAnimationNumber)
+            if(normalAnimation.GetSpriteIndex() == hitAnimationNumber)
             {
                 // ヒットボックスオン
                 ActiveHitBox();
@@ -136,8 +136,8 @@ public class ShortAttack : BaseEnemyAttack
     /// @brief アニメーションスクリプトを設定する関数
     protected void SetAnimationScript()
     {
-        // NomalAnimationeのコンポーネントの取得
-        if (onNomalAnimation) nomalAnimation = GetComponent<NomalAnimation>();
+        // NormalAnimationのコンポーネントの取得
+        if (onNormalAnimation) normalAnimation = GetComponent<NormalAnimation>();
 
         // IncludeMovementAnimationのコンポーネントの取得
         else if (onIncludeMovementAnimation) movementAnimation = GetComponent<IncludeMovementAnimation>();

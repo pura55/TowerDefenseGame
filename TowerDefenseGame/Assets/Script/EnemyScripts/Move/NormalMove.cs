@@ -6,7 +6,7 @@ using UnityEngine;
 /// 
 /// ’Êí‚Ì“G‚ÌˆÚ“®ˆ—‚ğs‚¤ƒNƒ‰ƒX
 /// </summary>
-public class NomalMove : BaseEnemyMove
+public class NormalMove : BaseEnemyMove
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

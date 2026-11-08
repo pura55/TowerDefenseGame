@@ -21,7 +21,7 @@ public class BaseHitBoxRotation : MonoBehaviour
     [SerializeField]protected Vector3 parentHeaded = Vector3.zero; // 親が向かっている方角（符号を取得する為の変数）
     protected Vector3 distanceParent = Vector3.zero; // 親からの距離
     protected Transform parentTransform; // 親のトランスフォーム
-    protected NomalMove nomalMove;       // 基本的な移動を行うスクリプト
+    protected NormalMove normalMove;       // 基本的な移動を行うスクリプト
     protected AggressiveMove aggressiveMove; // プレイヤーの追跡を行う移動スクリプト
     protected BossMove bossMove; // ボスの移動
     #endregion
@@ -51,14 +51,14 @@ public class BaseHitBoxRotation : MonoBehaviour
         // 親が向かっている方角を取得
         GetParentHeaded();
 
-        float numx = parentHeaded.x; // 親進行方向のx座標
-        float numy = parentHeaded.y; // 親進行方向のy座標
+        float numX = parentHeaded.x; // 親進行方向のx座標
+        float numY = parentHeaded.y; // 親進行方向のy座標
 
         // アークタンジェント2を使ってラジアンを求める
         /// Atan2：Atanは比率から角度を求めるがtanの性質上象限を限定できないため
         ///        Atan2を使用し「0～90」「90～180」「-180～-90」「-90～0」
         ///        の範囲で4象限を特定できる
-        float radian = Mathf.Atan2(numy, numx); 
+        float radian = Mathf.Atan2(numY, numX); 
 
         Vector3 target = Vector3.zero; // 移動の目標
         target.y = distanceRadius * Mathf.Sin(radian); // y = r * sin(θ)
@@ -91,7 +91,7 @@ public class BaseHitBoxRotation : MonoBehaviour
     {
         if(onNomalMove)
         {
-            nomalMove = parentTransform.GetComponent<NomalMove>();
+            normalMove = parentTransform.GetComponent<NormalMove>();
         }
         else if(onAggressiveMove)
         {
@@ -108,7 +108,7 @@ public class BaseHitBoxRotation : MonoBehaviour
     {
         if (onNomalMove)
         {
-            parentHeaded = nomalMove.GetMovementPerFrame();
+            parentHeaded = normalMove.GetMovementPerFrame();
         }
         else if(onAggressiveMove)
         {

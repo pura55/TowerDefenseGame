@@ -5,7 +5,7 @@ using UnityEngine;
 /// 
 /// 通常のアニメーションスクリプト
 /// </summary>
-public class NomalAnimation : BaseEnemySpriteSelector
+public class NormalAnimation : BaseEnemySpriteSelector
 {
     void Start()
     {
@@ -37,7 +37,7 @@ public class NomalAnimation : BaseEnemySpriteSelector
                 DeathAnimation();
                 break;
         }
-        SelectFripSprite();
+        SelectFlipSprite();
     }
 
     /// @brief 初期化関数

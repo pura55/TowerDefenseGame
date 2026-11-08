@@ -5,7 +5,7 @@ using UnityEngine;
 /// 
 /// •’Ê‚Ì“G‚ÌŠÇ—‚ğs‚¤ƒNƒ‰ƒX
 /// </summary>
-public class NomalEnemyManager : BaseEnemyManager
+public class NormalEnemyManager : BaseEnemyManager
 {
     
     private void Start()

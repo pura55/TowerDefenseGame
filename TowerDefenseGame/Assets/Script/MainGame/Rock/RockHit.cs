@@ -8,7 +8,7 @@ public class RockHit : MonoBehaviour
     [SerializeField] private SoundPlayer soundPlayer; // サウンドプレイヤー
     [SerializeField] private int hitDamage = 50; // ヒット時のダメージ
     [SerializeField] private float waitTime = 0.6f; // 破壊待機時間
-    [SerializeField] private float playPtich = 1.5f; // 破壊音再生速度
+    [SerializeField] private float playPitch = 1.5f; // 破壊音再生速度
     #endregion
 
     #region State
@@ -26,12 +26,6 @@ public class RockHit : MonoBehaviour
     public static void ResetBlockedRockCount()
     {
         blockedRockCount = 0;
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -80,7 +74,7 @@ public class RockHit : MonoBehaviour
 
             isHit = true;
 
-            StartCoroutine(WaitFinisheSound());
+            StartCoroutine(WaitFinishSound());
             return;
         }
     }
@@ -100,7 +94,7 @@ public class RockHit : MonoBehaviour
 
             isHit = true;
 
-            StartCoroutine(WaitFinisheSound());
+            StartCoroutine(WaitFinishSound());
             return;
         }
     }
@@ -120,13 +114,13 @@ public class RockHit : MonoBehaviour
 
             isHit = true;
 
-            StartCoroutine(WaitFinisheSound());
+            StartCoroutine(WaitFinishSound());
             return;
         }
     }
 
     /// @brief サウンド停止待機を行う関数
-    IEnumerator WaitFinisheSound()
+    IEnumerator WaitFinishSound()
     {
         yield return new WaitForSeconds(waitTime);
 
@@ -136,7 +130,7 @@ public class RockHit : MonoBehaviour
     private void PlayDestroySE()
     {
         soundPlayer.StopSounds();
-        soundPlayer.SetAudioPitch(playPtich);
+        soundPlayer.SetAudioPitch(playPitch);
         soundPlayer.PlayOneShot();
     }
 }

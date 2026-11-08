@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +14,7 @@ public class SelectAnimation : MonoBehaviour
     public class CharacterSprites
     {
         public Sprite[] idleSprites; // キャラスプライトの配列
-        public int size;
+        public int size; // 配列のサイズ
     }
 
     #region Config

@@ -11,20 +11,20 @@ public class BgmManager : MonoBehaviour
     [SerializeField] private SoundPlayer soundPlayer;// サウンドプレイヤー
 
     [Header("BGMs")]
-    [SerializeField] private AudioClip nomalBgm; // 普通のBGM
+    [SerializeField] private AudioClip normalBgm; // 普通のBGM
     [SerializeField] private AudioClip midBossBgm; // 中ボスBGM
     [SerializeField] private AudioClip finalBgm; // 最終BGM
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SetNomalBgm();
+        SetNormalBgm();
     }
 
 
     /// @brief 普通のBGMを設定する関数
-    public void SetNomalBgm()
+    public void SetNormalBgm()
     {
-        soundPlayer.SetBGM(nomalBgm);
+        soundPlayer.SetBGM(normalBgm);
         soundPlayer.PlayBGM();
     }
 

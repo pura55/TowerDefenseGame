@@ -9,22 +9,18 @@ public class RockSpawner : MonoBehaviour
 {
     #region Config
     [SerializeField] private int spawnerID = 0;
-    private int currentSpawnIndex = 1;   // 現在のスポーンする回数
-    private int spawnCounter = 0;        // スポーンを数える変数
-    private const float spawnZ = 0f;     // z軸のスポーン座標
-    #endregion
-
-    #region State
     [SerializeField] private GameObject rockToSpawn;     // スポーンさせる対象オブジェクト
     [SerializeField] private Transform tower;            // タワーのオブジェクト
     [SerializeField] private RockManager rockManager;     // 落石を管理するオブジェクト
+    #endregion
+
+    #region State
+    private int currentSpawnIndex = 1;   // 現在のスポーンする回数
+    private int spawnCounter = 0;        // スポーンを数える変数
+    private const float spawnZ = 0f;     // z軸のスポーン座標
     public Vector3 spawnRange = new Vector3(3f, 3f, 0f); // スポーン範囲
     #endregion
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()

@@ -8,8 +8,8 @@ using UnityEngine.UI;
 /// </summary>
 public class ChangeVolume : SettingSliderBase
 {
-    [SerializeField] private bool isBGM = false;
-    [SerializeField] private bool isSE = false;
+    [SerializeField] private bool isBGM = false; // 設定項目がBGMかどうかのフラグ
+    [SerializeField] private bool isSE = false; // 設定項目がSEかどうかのフラグ
 
     private void Start()
     {

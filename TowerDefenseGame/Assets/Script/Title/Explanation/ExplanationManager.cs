@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +10,7 @@ public class ExplanationManager : MonoBehaviour
 {
     #region Config
     [SerializeField] private Sprite[] explanationSprites; // 説明のスプライト
-    [SerializeField] private Image myImage;
-    [SerializeField] private Sprite mySprite;
+    [SerializeField] private Image myImage; // 画像
     #endregion
 
     #region State
@@ -25,18 +23,12 @@ public class ExplanationManager : MonoBehaviour
         InitValue();
     }
 
+    /// @brief 変数の初期化を行います
     private void InitValue()
     {
         myImage = GetComponent<Image>();
         spriteLength = explanationSprites.Length;
         myImage.sprite = explanationSprites[currentElement];
-    }
-
-    /// @brief 値をリセットする関数 
-    public void ResetValue()
-    {
-        int zero = 0; // 0を代入するための変数
-        currentElement = zero;
     }
 
     /// @brief 次の説明に移る処理を行う関数

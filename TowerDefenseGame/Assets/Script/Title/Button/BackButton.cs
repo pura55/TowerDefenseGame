@@ -8,8 +8,8 @@ using UnityEngine;
 public class BackButton : ButtonBase
 {
     #region State
-    [SerializeField] private StartScreen startScreen;
-    [SerializeField] private SelectScreen selectScreen;
+    [SerializeField] private StartScreen startScreen; // スタートスクリーン
+    [SerializeField] private SelectScreen selectScreen; // 選択スクリーン
     #endregion
     public override void OnClick()
     {

@@ -10,7 +10,7 @@ public class BossSpawner : BaseEnemySpawner
 {
     #region Config
     [SerializeField] private int bossID = 9; // ボスのID
-    [SerializeField] private int nomalEnemyNums = 8; // 雑魚敵の数
+    [SerializeField] private int normalEnemyNumbers = 8; // 雑魚敵の数
     [SerializeField] private int debugBossID = 11;
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,7 +43,7 @@ public class BossSpawner : BaseEnemySpawner
             Debug.Log("敵のスポーン処理中");
 
             //オブジェクト生成
-            GameObject spawnedEnemy = GenerateInstance(bossID - nomalEnemyNums); // 雑魚敵分idを減少（リストで管理しているため）
+            GameObject spawnedEnemy = GenerateInstance(bossID - normalEnemyNumbers); // 雑魚敵分idを減少（リストで管理しているため）
 
             // ターゲットの参照を渡す
             PassTargetReference(spawnedEnemy, 1);

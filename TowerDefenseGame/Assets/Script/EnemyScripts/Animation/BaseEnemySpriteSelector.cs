@@ -52,7 +52,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     protected Sprite[] deathSprites;    // 死亡スプライト
     protected Sprite[] moveSprites;     // 移動スプライト
     protected SpriteRenderer spriteRenderer; // スプライトレンダラー
-    protected NomalMove nomalMove; // 通常の移動スクリプト
+    protected NormalMove normalMove; // 通常の移動スクリプト
     protected AggressiveMove aggressiveMove; // プレイヤーを追尾するスクリプト
     protected BossMove bossMove; // ボスの移動
     [SerializeField] protected EnemySpriteData enemySpriteData; // スプライトデータ
@@ -228,8 +228,8 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     /// @brief 移動スクリプトを設定する関数
     protected void SetMovementScript()
     {
-        // NomalMoveのコンポーネントの取得
-        if (onNomalMove) nomalMove = GetComponent<NomalMove>();
+        // NormalMoveのコンポーネントの取得
+        if (onNomalMove) normalMove = GetComponent<NormalMove>();
 
         // AggressiveMoveのコンポーネントの取得
         else if (onAggressiveMove) aggressiveMove = GetComponent<AggressiveMove>();
@@ -238,10 +238,10 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     }
 
     /// @brief スプライトのフリップ処理を選択する関数
-    protected void SelectFripSprite()
+    protected void SelectFlipSprite()
     {
-        // NomalMoveのコンポーネントの取得
-        if (onNomalMove) FlipSprite(nomalMove.GetMovementPerFrame());
+        // NormalMoveのコンポーネントの取得
+        if (onNomalMove) FlipSprite(normalMove.GetMovementPerFrame());
 
         // AggressiveMoveのコンポーネントの取得
         else if (onAggressiveMove) FlipSprite(aggressiveMove.GetMovementPerFrame());

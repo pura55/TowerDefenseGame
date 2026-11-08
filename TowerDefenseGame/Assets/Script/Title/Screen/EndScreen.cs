@@ -8,8 +8,6 @@ using UnityEngine.UI;
 /// </summary>
 public class EndScreen : ScreenBase
 {
-    #region Config
-    #endregion
     #region State
     private bool isEndPressed = false; // 終了ボタンのフラグ
     private bool isNoPressed = false; // Noボタンのフラグ
@@ -20,9 +18,7 @@ public class EndScreen : ScreenBase
     void Start()
     {
         myRectTransform = GetComponent<RectTransform>();
-        image = GetComponent<Image>();
-        startPosition = new Vector3(0f, 1080f, 0f);
-        endPosition = Vector3.zero; 
+        image = GetComponent<Image>();    
     }
 
     void Update()
