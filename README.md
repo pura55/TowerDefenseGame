@@ -25,7 +25,7 @@
 | ![Screen3](https://github.com/pura55/TowerDefenseGame/blob/main/Screenshot/image_3.png) | ![Screen4](https://github.com/pura55/TowerDefenseGame/blob/main/Screenshot/image_4.png) |
 
 ## 🎥 Web Gameplay URL / Webプレイ用URL
-* [playe the Game / プレイはこちら](https://pura55.github.io/TowerDefenseGame-Web/)
+* [Play the Game / プレイはこちら](https://pura55.github.io/TowerDefenseGame-Web/)
 
 ## 📜 クレジット・使用素材 / Credits
 
