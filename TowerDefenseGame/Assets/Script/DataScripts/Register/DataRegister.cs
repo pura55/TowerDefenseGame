@@ -17,7 +17,7 @@ public class DataRegister : MonoBehaviour
     }
 
     /// @brief プレイヤーのデータを登録する関数
-    public void RegistPlayerData(int id, PlayerMasterData data)
+    public void RegisterPlayerData(int id, PlayerMasterData data)
     {
         // 中身を一度からにする
         playerMasterData.players.Clear();
@@ -58,7 +58,7 @@ public class DataRegister : MonoBehaviour
     }
 
     /// @brief エネミーのデータを登録する関数
-    public void RegistEnemyData(EnemyMasterData data)
+    public void RegisterEnemyData(EnemyMasterData data)
     {
         if(data != null)
         {

@@ -16,7 +16,7 @@ public class SpriteRegister : MonoBehaviour
         
     }
 
-    public void RegistEnemySprite(EnemyMasterSprite data)
+    public void RegisterEnemySprite(EnemyMasterSprite data)
     {
         Debug.Log("スプライトデータの登録");
         if (data != null)
@@ -30,7 +30,7 @@ public class SpriteRegister : MonoBehaviour
         }
     }
 
-    public void RegistPlayerSprite(PlayerMasterSprite data)
+    public void RegisterPlayerSprite(PlayerMasterSprite data)
     {
         Debug.Log("プレイヤースプライトデータの登録");
         if (data != null)

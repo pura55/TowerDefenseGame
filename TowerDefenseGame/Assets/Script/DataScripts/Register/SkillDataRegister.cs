@@ -61,11 +61,11 @@ public class SkillDataRegister : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        RegistSkillData();
+        RegisterSkillData();
     }
 
     /// @brief スキルのデータを登録する関数
-    private void RegistSkillData()
+    private void RegisterSkillData()
     {
         for(int i = (int)SkillName.CRITICAL; i <= (int)SkillName.WALL_CT; i++)
         {

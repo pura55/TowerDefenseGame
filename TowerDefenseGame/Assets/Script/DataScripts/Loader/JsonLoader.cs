@@ -37,7 +37,7 @@ public class JsonLoader : MonoBehaviour
             PlayerMasterData data = JsonUtility.FromJson<PlayerMasterData>(jsonString);
 
             // データの登録を行う
-            dataRegister.RegistPlayerData(selectCharacterID.GetSelectID(), data);
+            dataRegister.RegisterPlayerData(selectCharacterID.GetSelectID(), data);
         }
         else
         {
@@ -61,7 +61,7 @@ public class JsonLoader : MonoBehaviour
             EnemyMasterData data = JsonUtility.FromJson<EnemyMasterData>(jsonString);
 
             // データの登録を行う
-            dataRegister.RegistEnemyData(data);
+            dataRegister.RegisterEnemyData(data);
         }
         else
         {

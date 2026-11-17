@@ -101,7 +101,7 @@ public class SpriteLoader : MonoBehaviour
 
         Debug.Log("登録を開始");
         // データの登録
-        spriteRegister.RegistEnemySprite(enemyMasterSprite);
+        spriteRegister.RegisterEnemySprite(enemyMasterSprite);
     }
 
     /// @brief 移動のテクスチャーが存在する場合に読み込みを行う関数
@@ -150,6 +150,6 @@ public class SpriteLoader : MonoBehaviour
         }
 
         // データの登録
-        spriteRegister.RegistPlayerSprite(playerMasterSprite);
+        spriteRegister.RegisterPlayerSprite(playerMasterSprite);
     }
 }
