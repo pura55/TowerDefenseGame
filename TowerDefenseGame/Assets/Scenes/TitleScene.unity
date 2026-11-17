@@ -234,6 +234,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 4cac1db4b1eacd845bef7d590072fcbb, type: 3}
     - target: {fileID: 4832963366634058481, guid: e28743d11661ba94a9b71db2c4e5161f, type: 3}
+      propertyPath: normalBgm
+      value: 
+      objectReference: {fileID: 8300000, guid: 4cac1db4b1eacd845bef7d590072fcbb, type: 3}
+    - target: {fileID: 4832963366634058481, guid: e28743d11661ba94a9b71db2c4e5161f, type: 3}
       propertyPath: midBossBgm
       value: 
       objectReference: {fileID: 0}

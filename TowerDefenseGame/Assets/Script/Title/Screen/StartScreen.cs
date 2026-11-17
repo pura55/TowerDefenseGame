@@ -16,7 +16,6 @@ public class StartScreen : ScreenBase
     void Start()
     {
         myRectTransform = GetComponent<RectTransform>();
-        endPosition = new Vector3(-1920f, 0f, 0f);
     }
 
     // Update is called once per frame

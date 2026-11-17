@@ -11,13 +11,13 @@ public class SettingValues : ScriptableObject
     private float AUDIO_VOLUME_BGM = 1.0f; // BGM
     private float AUDIO_VOLUME_SE = 1.0f; // SE
 
-    private bool IS_Off_AUDIO; // オーディオをオフにするフラグ
+    private bool IS_OFF_AUDIO; // オーディオをオフにするフラグ
     private const float ZERO_VOLUME = 0f; // ボリュームゼロ
 
     /// @brief BMGのボリュームを取得する関数
     public float GetVolumeBGM()
     {
-        if(!IS_Off_AUDIO)
+        if(!IS_OFF_AUDIO)
         {
             return AUDIO_VOLUME_BGM;
         }
@@ -37,7 +37,7 @@ public class SettingValues : ScriptableObject
     public float GetVolumeSE()
     {   
         
-        if (!IS_Off_AUDIO)
+        if (!IS_OFF_AUDIO)
         {
             return AUDIO_VOLUME_SE;
         }
@@ -56,12 +56,12 @@ public class SettingValues : ScriptableObject
     /// @brief オーディオフラグを取得する関数
     public bool GetOffAudio()
     {
-        return IS_Off_AUDIO;
+        return IS_OFF_AUDIO;
     }
 
     /// @brief オーディオフラグを設定する関数
     public void SetOffAudio(bool offAudio)
     {
-        IS_Off_AUDIO = offAudio;
+        IS_OFF_AUDIO = offAudio;
     }
 }

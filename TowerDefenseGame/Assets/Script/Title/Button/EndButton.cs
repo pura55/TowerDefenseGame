@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// エンドボタン
 /// 
-/// ゲーム終了ボタン
+/// ゲーム終了の選択を表示するボタン
 /// </summary>
 public class EndButton : ButtonBase
 {
@@ -15,16 +15,5 @@ public class EndButton : ButtonBase
     {
         base.OnClick();
         endScreen.SetEndPressed();
-    }
-
-
-    /// @brief ゲームを終了させる関数
-    private void EndGame()
-    {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;//ゲームプレイ終了
-#else
-        Application.Quit();//ゲームプレイ終了
-#endif
     }
 }

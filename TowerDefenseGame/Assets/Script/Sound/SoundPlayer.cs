@@ -10,7 +10,7 @@ public class SoundPlayer : MonoBehaviour
 {
     #region Config
     [Header("CLIPS")]
-    [SerializeField] protected AudioClip audioNomalSound; // ’Êí‰¹
+    [SerializeField] protected AudioClip audioNormalSound; // ’Êí‰¹
     [SerializeField] protected AudioClip audioBGM; // BGM
     [SerializeField] protected AudioClip audioOneShot; // Œø‰Ê‰¹
 
@@ -84,7 +84,7 @@ public class SoundPlayer : MonoBehaviour
         }
         else
         {
-            audioSource.clip = audioNomalSound;
+            audioSource.clip = audioNormalSound;
             audioSource.loop = false;
             return;
         }
@@ -99,7 +99,7 @@ public class SoundPlayer : MonoBehaviour
     /// @brief ’Êí‰¹‚ğİ’è‚·‚éŠÖ”
     public void SetNomalSound(AudioClip clip)
     {
-        audioNomalSound = clip;
+        audioNormalSound = clip;
     }
 
     /// @brief BGM‚ğİ’è‚·‚éŠÖ”

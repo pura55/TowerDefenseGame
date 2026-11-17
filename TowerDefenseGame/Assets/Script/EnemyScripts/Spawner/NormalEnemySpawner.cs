@@ -1,15 +1,20 @@
 using UnityEngine;
 
-public class NomalEnemySpawner : BaseEnemySpawner
+/// <summary>
+/// ノーマルエネミーマネージャー
+/// 
+/// 通常の敵の生成処理を行います
+/// </summary>
+public class NormalEnemySpawner : BaseEnemySpawner
 {
     #region Config
     [Header("POSITON")]
     [SerializeField] private Vector3 activeSpawnPosition = new Vector3(0f, 0f, 0f); // 攻撃的スポーン範囲
-    [SerializeField] private Vector3 nomalSpawnPosition = new Vector3(0f, 0f, 0f); // 普通スポーン範囲
+    [SerializeField] private Vector3 normalSpawnPosition = new Vector3(0f, 0f, 0f); // 普通スポーン範囲
     #endregion
     void Start()
     {
-        nomalSpawnPosition = transform.position;
+        normalSpawnPosition = transform.position;
         enemySpawnerManager = transform.parent.GetComponent<EnemySpawnerManager>();
         tower = enemySpawnerManager.GetTower().transform;
     }
@@ -55,7 +60,7 @@ public class NomalEnemySpawner : BaseEnemySpawner
 
             if(spawnID[random] < 5)
             {
-                transform.position = nomalSpawnPosition;
+                transform.position = normalSpawnPosition;
             }
             else
             {
@@ -87,7 +92,7 @@ public class NomalEnemySpawner : BaseEnemySpawner
         if(id < 5)
         {
             // 敵のスクリプトの参照を取得
-            NomalMove enemyScript = spawnedEnemy.GetComponent<NomalMove>();
+            NormalMove enemyScript = spawnedEnemy.GetComponent<NormalMove>();
 
             //敵にタワーのオブジェクトの参照を渡す
             if (enemyScript != null)

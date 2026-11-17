@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// セレクトボタン
@@ -11,14 +10,14 @@ public class SelectButton : ButtonBase
     #region Config
     [SerializeField] private bool toNext = false; // 次へ進めるかどうかのフラグ
     [SerializeField] private SelectAnimation selectAnimation; // 選択アニメーションクラス
-    private const int maxId = 4;
-    private const int minId = 1;
+    [SerializeField] private ControlButtonImage cursorImage; // カーソルの画像
+    [SerializeField] private SelectButton oppositeButton; // 反対のボタン
     #endregion
 
     #region State
-    private ControlButtonImage myImage;
-    [SerializeField] private ControlButtonImage cursorImage;
-    [SerializeField] private SelectButton oppsiteButton; // 反対のボタン
+    private ControlButtonImage myImage; // 操作ボタンの画像
+    private const int maxId = 4; // キャラクターのIDの最大値
+    private const int minId = 1; // キャラクターのIDの最小値
     #endregion
 
     private void Start()
@@ -52,7 +51,7 @@ public class SelectButton : ButtonBase
         {
             selectAnimation.BackToSprites();
 
-            oppsiteButton.OnImage();
+            oppositeButton.OnImage();
 
             // IDが最小値に達しているため画像オフ
             if (selectAnimation.GetCharacterID() == minId)
@@ -70,7 +69,7 @@ public class SelectButton : ButtonBase
         {
             selectAnimation.NextToSprites();
 
-            oppsiteButton.OnImage();
+            oppositeButton.OnImage();
 
             // IDが最大値に達しているため画像オフ
             if (selectAnimation.GetCharacterID() == maxId)

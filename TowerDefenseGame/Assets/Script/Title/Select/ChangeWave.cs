@@ -1,10 +1,15 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// チェンジウェーブ
+/// 
+/// デバックで使用するウェーブ変更スクリプト
+/// </summary>
 public class ChangeWave : MonoBehaviour
 {
-    [SerializeField] private WaveCycle waveCycle;
-    [SerializeField] private TMP_InputField textMeshPro;
+    [SerializeField] private WaveCycle waveCycle; // ウェーブのサイクル
+    [SerializeField] private TMP_InputField textMeshPro; // テキスト
 
     private void Start()
     {

@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// プレイボタン
+/// 
+/// 選択スクリーンへ移動するボタン
+/// </summary>
 public class PlayButton : ButtonBase
 {
     #region State

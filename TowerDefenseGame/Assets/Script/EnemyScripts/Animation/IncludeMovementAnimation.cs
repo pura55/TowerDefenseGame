@@ -38,7 +38,7 @@ public class IncludeMovementAnimation: BaseEnemySpriteSelector
                 DeathAnimation();
                 break;
         }
-        SelectFripSprite();
+        SelectFlipSprite();
 
     }
 

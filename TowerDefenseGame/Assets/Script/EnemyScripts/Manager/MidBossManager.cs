@@ -4,7 +4,7 @@ using UnityEngine;
 /// ノーマルエネミーマネージャー
 /// 中ボスの管理を行うクラス
 /// </summary>
-public class MidBossManager : NomalEnemyManager
+public class MidBossManager : NormalEnemyManager
 {
     #region Config
     [SerializeField] private int bossID;

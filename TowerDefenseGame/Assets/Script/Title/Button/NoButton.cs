@@ -1,9 +1,9 @@
 using UnityEngine;
 
 /// <summary>
-/// エンドボタン
+/// Noボタン
 /// 
-/// ゲーム終了ボタン
+/// ゲーム終了をキャンセルするボタン
 /// </summary>
 public class NoButton : ButtonBase
 {

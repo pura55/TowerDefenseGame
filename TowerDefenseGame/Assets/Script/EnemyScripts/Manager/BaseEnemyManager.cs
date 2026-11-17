@@ -32,10 +32,10 @@ public abstract class BaseEnemyManager : MonoBehaviour
     protected EnemyState enemyState = EnemyState.Idle; // 敵の状態
     protected bool isTakeHit = false; // ダメージを受けてかどうかのフラグ
     protected bool isDead = false; // 死んでいるかどうかのフラグ
-    protected NomalMove nomalMove; // 普通の移動
+    protected NormalMove normalMove; // 普通の移動
     protected AggressiveMove aggressiveMove; // 攻撃的な移動
     protected BossMove bossMove; // ボスの移動
-    protected NomalAnimation nomalAnimation; // 普通のアニメーション
+    protected NormalAnimation normalAnimation; // 普通のアニメーション
     protected IncludeMovementAnimation movementAnimation; // 移動付きアニメーション
     protected MidBossAnimation midBossAnimation; // 中ボスアニメーション
     protected EnemyHealth enemyHealth; // 体力管理スクリプト
@@ -67,8 +67,8 @@ public abstract class BaseEnemyManager : MonoBehaviour
     /// @brief 移動スクリプトを設定する関数
     protected virtual void SetMovementScript()
     {
-        // NomalMoveのコンポーネントの取得
-        if (onNomalMove) nomalMove = GetComponent<NomalMove>();
+        // NormalMoveのコンポーネントの取得
+        if (onNomalMove) normalMove = GetComponent<NormalMove>();
 
         // AggressiveMoveのコンポーネントの取得
         else if (onAggressiveMove) aggressiveMove = GetComponent<AggressiveMove>();
@@ -80,8 +80,8 @@ public abstract class BaseEnemyManager : MonoBehaviour
     /// @brief アニメーションスクリプトを設定する関数
     protected void SetAnimationScript()
     {
-        // NomalAnimationeのコンポーネントの取得
-        if (onNomalAnimation) nomalAnimation = GetComponent<NomalAnimation>();
+        // NormalAnimationのコンポーネントの取得
+        if (onNomalAnimation) normalAnimation = GetComponent<NormalAnimation>();
 
         // IncludeMovementAnimationのコンポーネントの取得
         else if (onIncludeMovementAnimation) movementAnimation = GetComponent<IncludeMovementAnimation>();
@@ -93,7 +93,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
     /// @brief 移動の設定関数
     protected void SetStopMovement(bool flag)
     {
-        if (onNomalMove) nomalMove.SetStopMovement(flag);
+        if (onNomalMove) normalMove.SetStopMovement(flag);
 
         else if (onAggressiveMove) aggressiveMove.SetStopMovement(flag);
 
@@ -103,7 +103,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
     /// @brief 接近フラグの取得関数
     protected bool GetIsAttached()
     {
-        if (onNomalMove) return nomalMove.GetIsAttached();
+        if (onNomalMove) return normalMove.GetIsAttached();
 
         else if (onAggressiveMove) return aggressiveMove.GetIsAttached();
 
@@ -115,7 +115,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
     /// @brief 待機アニメーションを設定する関数
     protected void SetIdleAnimation()
     {
-        if (onNomalAnimation) nomalAnimation.SetIdle ();
+        if (onNomalAnimation) normalAnimation.SetIdle ();
 
         else if (onIncludeMovementAnimation) movementAnimation.SetIdle();
 
@@ -125,7 +125,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
     /// @brief 移動アニメーションを設定する関数
     protected void SetMoveAnimation()
     {
-        if (onNomalAnimation) nomalAnimation.SetMove();
+        if (onNomalAnimation) normalAnimation.SetMove();
 
         else if (onIncludeMovementAnimation) movementAnimation.SetMove();
 
@@ -135,7 +135,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
     /// @brief 攻撃アニメーションを設定する関数
     protected void SetAttackAnimation()
     {
-        if (onNomalAnimation) nomalAnimation.SetAttack();
+        if (onNomalAnimation) normalAnimation.SetAttack();
 
         else if (onIncludeMovementAnimation) movementAnimation.SetAttack();
 
@@ -145,7 +145,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
     /// @brief 被ダメージアニメーションを設定する関数
     protected void SetHitAnimation()
     {
-        if (onNomalAnimation) nomalAnimation.SetHit();
+        if (onNomalAnimation) normalAnimation.SetHit();
 
         else if (onIncludeMovementAnimation) movementAnimation.SetHit();
 
@@ -154,7 +154,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
 
     protected void SetDeathAnimation()
     {
-        if (onNomalAnimation) nomalAnimation.SetDeath();
+        if (onNomalAnimation) normalAnimation.SetDeath();
 
         else if (onIncludeMovementAnimation) movementAnimation.SetDeath();
 
@@ -164,7 +164,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
     /// @brief アニメーションをリセットする関数
     protected void ResetAnimation()
     {
-        if (onNomalAnimation) nomalAnimation.ResetFrameAndIndex();
+        if (onNomalAnimation) normalAnimation.ResetFrameAndIndex();
 
         else if (onIncludeMovementAnimation) movementAnimation.ResetFrameAndIndex();
 
@@ -175,7 +175,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
     protected bool FinishedEventAnimation()
     {
         if (onNomalAnimation)
-            return nomalAnimation.GetFinishedEvent();
+            return normalAnimation.GetFinishedEvent();
 
         else if (onIncludeMovementAnimation)
             return movementAnimation.GetFinishedEvent();
@@ -190,7 +190,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
     protected bool FinishedDeathAnimation()
     {
         if (onNomalAnimation)
-            return nomalAnimation.GetFinishedDeath();
+            return normalAnimation.GetFinishedDeath();
 
         else if (onIncludeMovementAnimation)
             return movementAnimation.GetFinishedDeath();

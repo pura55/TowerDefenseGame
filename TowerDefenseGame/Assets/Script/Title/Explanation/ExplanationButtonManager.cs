@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 /// <summary>
 /// エクスプラネーションボタンマネージャー
@@ -13,12 +12,6 @@ public class ExplanationButtonManager : MonoBehaviour
     [SerializeField] private GameObject nextButton; // 次へボタン
     [SerializeField] private GameObject frontButton; // 前へボタン
     #endregion
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     /// @brief ボタンを管理する関数
     public void ManageButton()

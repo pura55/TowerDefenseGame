@@ -8,7 +8,7 @@ using UnityEngine;
 public class RockManager : MonoBehaviour
 {
     #region Config
-    private float spawnInterval = 30f;    // スポーンのインターバル
+    [SerializeField] private float spawnInterval = 30f;    // スポーンのインターバル
     [SerializeField] private const int maxSpawner = 4;
     #endregion
 
@@ -23,11 +23,6 @@ public class RockManager : MonoBehaviour
 
     // スポーンIDを例外に設定する関数
     public void SetSpawnerID() {  currentSpawnerID = -1; }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

@@ -7,25 +7,27 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     #region Config
-    private int enemyHp = 5;
-    [SerializeField] private int enemyID = 0;
-    private static int playerKillCount = 0;
-    private bool playerKillCounted = false;
-    private bool finalBossTimerStopped = false;
+    [SerializeField] private int enemyID = 0; // 敵のID
+    [SerializeField] private EnemyProgressData enemyProgressData; // 敵のデータ
+
+    [Header("ENEMY TYPE")]
+    [SerializeField] private bool onNormalEnemy = true; // 通常敵かどうかのフラグ
+    [SerializeField] private bool onBoss = false; // ボスかどうかのフラグ
     #endregion
 
     #region State
-    private bool isHitRock = false;
-    private string hpStatName = "HP";
-    [SerializeField] private EnemyProgressData enemyProgressData;
+    private bool isHitRock = false; // 落石のヒットフラグ
+    private string hpStatName = "HP"; // ステータスの名前
+    private int enemyHp = 5; // 敵の体力
 
-    [Header("ENEMY TYPE")]
-    [SerializeField] private bool onNomalEnemy = true;
-    [SerializeField] private bool onBoss = false;
-    private NomalEnemyManager nomalEnemyManager;
-    private MidBossManager midBossManager;
+    private static int playerKillCount = 0; // プレイヤーが倒した敵の数
+    private bool playerKillCounted = false; // プレイヤーが敵を倒した場合のフラグ
+    private bool finalBossTimerStopped = false; // 最終ボスを倒した際のタイマーストップフラグ
 
-    private DamageTextManager damageTextManager;
+    private NormalEnemyManager normalEnemyManager; // マネージャー （敵のフラグによって参照を取得）
+    private MidBossManager midBossManager; 
+
+    private DamageTextManager damageTextManager; // ダメージ表示マネージャー
     #endregion
 
     void Start()
@@ -48,9 +50,9 @@ public class EnemyHealth : MonoBehaviour
     {
         enemyHp = enemyProgressData.GetIntStat(enemyID, hpStatName);
 
-        if (onNomalEnemy)
+        if (onNormalEnemy)
         {
-            nomalEnemyManager = GetComponent<NomalEnemyManager>();
+            normalEnemyManager = GetComponent<NormalEnemyManager>();
         }
         else if (onBoss)
         {
@@ -73,9 +75,9 @@ public class EnemyHealth : MonoBehaviour
     /// </summary>
     public void ReceiveDamage(int dmg)
     {
-        if (onNomalEnemy)
+        if (onNormalEnemy)
         {
-            NomalEnemyReceive(dmg, false);
+            NormalEnemyReceive(dmg, false);
         }
         else if (onBoss)
         {
@@ -88,9 +90,9 @@ public class EnemyHealth : MonoBehaviour
     /// </summary>
     public void ReceivePlayerDamage(int dmg)
     {
-        if (onNomalEnemy)
+        if (onNormalEnemy)
         {
-            NomalEnemyReceive(dmg, true);
+            NormalEnemyReceive(dmg, true);
         }
         else if (onBoss)
         {
@@ -101,9 +103,9 @@ public class EnemyHealth : MonoBehaviour
     /// <summary>
     /// 通常の敵の被ダメージ処理
     /// </summary>
-    private void NomalEnemyReceive(int dmg, bool fromPlayer)
+    private void NormalEnemyReceive(int dmg, bool fromPlayer)
     {
-        if (nomalEnemyManager.GetIsDead()) return;
+        if (normalEnemyManager.GetIsDead()) return;
 
         enemyHp -= dmg;
 
@@ -119,11 +121,11 @@ public class EnemyHealth : MonoBehaviour
 
         if (IsAlive())
         {
-            nomalEnemyManager.SetTakeHit();
+            normalEnemyManager.SetTakeHit();
         }
         else
         {
-            nomalEnemyManager.SetIsDead();
+            normalEnemyManager.SetIsDead();
 
             // EnemyID 11のボスが死亡したらタイマーを停止・保存
             StopTimerIfFinalBoss();
@@ -249,10 +251,10 @@ public class EnemyHealth : MonoBehaviour
     /// </summary>
     public bool IsDead()
     {
-        if (onNomalEnemy)
+        if (onNormalEnemy)
         {
-            return nomalEnemyManager != null &&
-                   nomalEnemyManager.GetIsDead();
+            return normalEnemyManager != null &&
+                   normalEnemyManager.GetIsDead();
         }
 
         if (onBoss)
