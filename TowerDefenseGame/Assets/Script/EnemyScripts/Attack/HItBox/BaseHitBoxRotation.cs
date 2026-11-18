@@ -9,7 +9,7 @@ public class BaseHitBoxRotation : MonoBehaviour
 {
     #region Config
     [SerializeField] protected float distanceRadius = 0.3f; // 距離半径
-    [SerializeField] protected bool onNomalMove = false; // 基本移動が付いているかどうかのフラグ
+    [SerializeField] protected bool onNormalMove = false; // 基本移動が付いているかどうかのフラグ
     [SerializeField] protected bool onAggressiveMove = false; // プレイヤー追跡の移動がついているかどうかのフラグ
     [SerializeField] protected bool onBossMove = false; // ボスの移動フラグ
     [SerializeField] protected bool notRotate = false; // 回転をさせないフラグ
@@ -18,7 +18,7 @@ public class BaseHitBoxRotation : MonoBehaviour
     #region State
     protected Quaternion targetRotation = Quaternion.Euler(0, 0f, 90f); // 目標回転量
     protected Vector3 targetPosition = Vector3.zero;                    // 目標座標
-    [SerializeField]protected Vector3 parentHeaded = Vector3.zero; // 親が向かっている方角（符号を取得する為の変数）
+    protected Vector3 parentHeaded = Vector3.zero; // 親が向かっている方角（符号を取得する為の変数）
     protected Vector3 distanceParent = Vector3.zero; // 親からの距離
     protected Transform parentTransform; // 親のトランスフォーム
     protected NormalMove normalMove;       // 基本的な移動を行うスクリプト
@@ -51,14 +51,14 @@ public class BaseHitBoxRotation : MonoBehaviour
         // 親が向かっている方角を取得
         GetParentHeaded();
 
-        float numX = parentHeaded.x; // 親進行方向のx座標
-        float numY = parentHeaded.y; // 親進行方向のy座標
+        float movementX = parentHeaded.x; // 親進行方向のx座標
+        float movementY = parentHeaded.y; // 親進行方向のy座標
 
         // アークタンジェント2を使ってラジアンを求める
         /// Atan2：Atanは比率から角度を求めるがtanの性質上象限を限定できないため
         ///        Atan2を使用し「0～90」「90～180」「-180～-90」「-90～0」
-        ///        の範囲で4象限を特定できる
-        float radian = Mathf.Atan2(numY, numX); 
+        ///        の範囲で4象限分の範囲を特定できる
+        float radian = Mathf.Atan2(movementY, movementX); 
 
         Vector3 target = Vector3.zero; // 移動の目標
         target.y = distanceRadius * Mathf.Sin(radian); // y = r * sin(θ)
@@ -89,7 +89,7 @@ public class BaseHitBoxRotation : MonoBehaviour
     ///@brief 移動用スクリプトの参照を取得する関数
     protected void SetMoveScript()
     {
-        if(onNomalMove)
+        if(onNormalMove)
         {
             normalMove = parentTransform.GetComponent<NormalMove>();
         }
@@ -106,7 +106,7 @@ public class BaseHitBoxRotation : MonoBehaviour
     /// @brief 親が向かっている方角を取得する関数
     protected void GetParentHeaded()
     {
-        if (onNomalMove)
+        if (onNormalMove)
         {
             parentHeaded = normalMove.GetMovementPerFrame();
         }

@@ -1,3 +1,4 @@
+using System.Buffers.Text;
 using UnityEngine;
 
 /// <summary>
@@ -8,14 +9,15 @@ using UnityEngine;
 public class RockRoll : MonoBehaviour
 {
     #region Config
-    [SerializeField]private float rollSpeed = 2f; // 追従速度
-    [SerializeField]private float spinAmount = 120f; // 回転量
+    [SerializeField] private float rollSpeed = 2f; // 追従速度
+    [SerializeField] private float rollRadius = 2f; // 回転半径
     [SerializeField] private SoundPlayer soundPlayer; // サウンドプレイヤー
     [SerializeField] private Transform targetTower; // ターゲットのタワー
     #endregion
 
     #region State
     private float degree = 0f; // 角度
+    private const float spinAmount = 120f; // 回転量
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,7 +33,7 @@ public class RockRoll : MonoBehaviour
         RotationSprite();
     }
 
-    /// @biref タワーへの接近処理を行う関数
+    /// @brief タワーへの接近処理を行う関数
     private void AttachTower()
     {
         // 一定の速さで移動させる
@@ -42,19 +44,22 @@ public class RockRoll : MonoBehaviour
         );
     }
 
-    /// @biref スプライトを回転させる関数
+    /// @brief スプライトを回転させる関数
     private void RotationSprite()
     {
-        if(transform.position.x < targetTower.position.x)
+        // 速度を元に回転を決める
+        float rotateBasedSpeed = rollSpeed / rollRadius * spinAmount;
+
+        if (transform.position.x < targetTower.position.x)
         {
-            degree -= spinAmount * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(0, 0, degree);
+            degree -= rotateBasedSpeed * Time.deltaTime;
         }
         else
         {
-            degree += spinAmount * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(0, 0, degree);
+            degree += rotateBasedSpeed * Time.deltaTime;
         }
+
+        transform.rotation = Quaternion.Euler(0, 0, degree);
     }
 
     /// @brief ターゲットのタワーを設定する関数

@@ -172,6 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7463cee401444478a50bd78decd5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RockRoll
+  rollSpeed: 0.5
+  spinAmount: 120
   soundPlayer: {fileID: -7139938870585006975}
   targetTower: {fileID: 0}
 --- !u!114 &4791656490113822573
@@ -189,7 +191,7 @@ MonoBehaviour:
   soundPlayer: {fileID: -7139938870585006975}
   hitDamage: 500
   waitTime: 0.6
-  playPtich: 1.5
+  playPitch: 1.5
 --- !u!114 &-7139938870585006975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45b44d41590a8f429fc1364df7f2873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundPlayer
-  audioNomalSound: {fileID: 0}
+  audioNormalSound: {fileID: 0}
   audioBGM: {fileID: 8300000, guid: 6a2ab7f02af5bf94194f33edb727b536, type: 3}
   audioOneShot: {fileID: 8300000, guid: 86262eaa22c0fde45808e0e70c0b4883, type: 3}
   audioSource: {fileID: -7886848446788986571}
